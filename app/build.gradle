@@ -19,8 +19,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -32,6 +37,11 @@ android {
     }
     buildFeatures{
         viewBinding true
+    }
+    sourceSets {
+        main {
+            assets.srcDirs += 'src/main/assets'
+        }
     }
 }
 
