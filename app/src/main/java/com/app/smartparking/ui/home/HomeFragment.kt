@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
         viewModel.getData().observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.rvDevice.layoutManager = GridLayoutManager(context, 5)
-                val adapter = ParkAdapter(it)
+                val adapter = ParkAdapter(it, this)
                 binding.rvDevice.adapter = adapter
             }else{
                 binding.rvDevice.visibility = View.GONE
