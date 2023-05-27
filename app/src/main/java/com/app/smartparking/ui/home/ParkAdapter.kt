@@ -38,4 +38,13 @@ class ParkAdapter(private var data : List<Parkiran>,private val fragment: Fragme
         holder.binding.tvDeviceName.text = deviceNumber
 
     }
+
+    fun updateData(newData: List<Parkiran>) {
+        data = newData
+        notifyDataSetChanged()
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(data: Parkiran)
+    }
 }
